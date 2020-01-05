@@ -5,6 +5,7 @@
  */
 package br.com.localeader.controller;
 
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,9 +35,22 @@ public class HomeController {
         model.addAttribute("subTexto", "Acesso permitidos somente para cadastros ativados!");
         return "/entrar";
     }
+    
+     @GetMapping("/acesso-negado")
+    public String acessoNegado(ModelMap model, HttpServletResponse response) {
+        model.addAttribute("status", response.getStatus());
+        model.addAttribute("error  ", "Acesso negado");
+        model.addAttribute("message", "Você não tem permissão para acessar esta área ou ação");
+        return "/error";
+    }
 
+    
+    
     @GetMapping("/404")
-    public String retornarPaginaErro(){
+    public String retornarPaginaErro403( ModelMap model, HttpServletResponse response){
+         model.addAttribute("status", response.getStatus());
+        model.addAttribute("error  ", "Pagina não encontrada");
+        model.addAttribute("message", "Verifique se a url esta certa");
         return "/error";
     }
 }

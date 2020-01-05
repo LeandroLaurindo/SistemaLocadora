@@ -8,7 +8,6 @@ package br.com.localeader.service.impl;
 import br.com.localeader.dao.UsuarioDao;
 import br.com.localeader.entidades.Usuario;
 import br.com.localeader.service.UsuarioService;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
