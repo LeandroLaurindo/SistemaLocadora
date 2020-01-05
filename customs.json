@@ -1,6 +1,9 @@
 {
     "elements": {},
     "attributes": {
+        "layout:decorate": {
+            "context": "html"
+        },
         "th:fragment": {}
     }
 }

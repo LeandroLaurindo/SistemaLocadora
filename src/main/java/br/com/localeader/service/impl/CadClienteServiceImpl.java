@@ -6,7 +6,7 @@
 package br.com.localeader.service.impl;
 
 import br.com.localeader.dao.CadClienteDao;
-import br.com.localeader.model.CadCliente;
+import br.com.localeader.entidades.CadCliente;
 import br.com.localeader.service.CadClienteService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +62,21 @@ public class CadClienteServiceImpl implements CadClienteService {
     @Override
     @Transactional(readOnly = true)
     public List<CadCliente> buscarTodos() {
-      return dao.findAll();
+        return dao.findAll();
+    }
+
+    @Override
+    public boolean existeCliente(String cpf, String cnpj) {
+        boolean retorno = false;
+        if (!cnpj.isEmpty()) {
+            String jpql = "SELECT c FROM CadCliente c WHERE c.documentoFk.cnpj ='" + cnpj + "'";
+            retorno = dao.buscarEntity(jpql).getIdCliente() != null;
+        }
+        if (!cpf.isEmpty()) {
+            String jpql = "SELECT c FROM CadCliente c WHERE c.documentoFk.cpf ='" + cpf + "'";
+            retorno = dao.buscarEntity(jpql).getIdCliente() != null;
+        }
+        return retorno;
     }
 
 }

@@ -5,7 +5,7 @@
  */
 package br.com.localeader.dao;
 
-import br.com.localeader.model.CadOcorrencias;
+import br.com.localeader.entidades.CadOcorrencias;
 import java.util.List;
 
 /**

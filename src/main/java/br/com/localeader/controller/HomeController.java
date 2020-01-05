@@ -5,11 +5,8 @@
  */
 package br.com.localeader.controller;
 
-import br.com.localeader.dao.UsuarioDao;
-import br.com.localeader.model.Usuario;
-import javax.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -18,22 +15,28 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class HomeController {
-   @Autowired
-   private UsuarioDao dao;
-    @GetMapping("/")
-    public String index() {
 
+    @GetMapping({"/", "/entrar"})
+    public String inicio() {
+        return "/entrar";
+    }
+
+    @GetMapping("/home")
+    public String entrar() {
         return "/home";
     }
-    @GetMapping("/logar")
-    public String logar(Usuario usuario, HttpSession session) {
-        
-        return "/index";
-    }
-    @GetMapping("/layout")
-    public String home() {
-        
-        return "/layout";
+
+    @GetMapping("/entrar-error")
+    public String entrarError(ModelMap model) {
+        model.addAttribute("alerta", "erro");
+        model.addAttribute("titulo  ", "Credenciais inválidas!");
+        model.addAttribute("texto", "Login ou senha incorretos tente novamente!");
+        model.addAttribute("subTexto", "Acesso permitidos somente para cadastros ativados!");
+        return "/entrar";
     }
 
+    @GetMapping("/404")
+    public String retornarPaginaErro(){
+        return "/error";
+    }
 }

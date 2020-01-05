@@ -5,7 +5,7 @@
  */
 package br.com.localeader.dao;
 
-import br.com.localeader.model.Usuario;
+import br.com.localeader.entidades.Usuario;
 import java.util.List;
 
 /**
@@ -22,9 +22,10 @@ public interface UsuarioDao {
 
     Usuario findById(Integer id);
 
+    Usuario findByLogin(String login);
+
     List<Usuario> findAll();
 
     Usuario buscarEntity(String jpql);
-    
-    
+
 }

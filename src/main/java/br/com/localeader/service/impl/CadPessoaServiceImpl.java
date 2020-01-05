@@ -6,7 +6,7 @@
 package br.com.localeader.service.impl;
 
 import br.com.localeader.dao.CadPessoaDao;
-import br.com.localeader.model.CadPessoa;
+import br.com.localeader.entidades.CadPessoa;
 import br.com.localeader.service.CadPessoaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

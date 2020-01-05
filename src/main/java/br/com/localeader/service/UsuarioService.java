@@ -5,7 +5,7 @@
  */
 package br.com.localeader.service;
 
-import br.com.localeader.model.Usuario;
+import br.com.localeader.entidades.Usuario;
 import java.util.List;
 
 /**
@@ -25,4 +25,7 @@ public interface UsuarioService {
     Usuario buscarPorLogin(String login);
 
     List<Usuario> buscarTodos();
+    
+    boolean usuarioExiste(String login);
+
 }

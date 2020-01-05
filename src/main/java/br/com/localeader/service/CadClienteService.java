@@ -5,7 +5,7 @@
  */
 package br.com.localeader.service;
 
-import br.com.localeader.model.CadCliente;
+import br.com.localeader.entidades.CadCliente;
 import java.util.List;
 
 /**
@@ -27,5 +27,7 @@ public interface CadClienteService {
     CadCliente buscarPorDoCnpj(String cpf);
 
     List<CadCliente> buscarTodos();
+
+    public boolean existeCliente(String cpf, String cnpj);
 
 }

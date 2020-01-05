@@ -4,43 +4,40 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <nav class="sidebar sidebar-open" th:fragment="nav-sidebar">
-            <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item"><a class="nav-link " href="/"> <i
-                            class="oi oi-home"></i> <span>Home</span>
-                    </a></li>
+        <nav class="menuL" th:fragment="nav-sidebar">
+            <div style="padding: 10px; ">
+                <a href="#" style="padding: 5px; border-radius: 50%; background: #ffed45; color: #009900;" title="Perfil">
+                    <i class="oi oi-person" ></i>
+                </a>
+                <a th:href="@{/usuarios/cadastro}" style="padding: 5px; border-radius: 50%; background: #ffed45; color: #009900; margin-left: 10px;" title="Usuários">
+                    <i class="oi oi-people" ></i>
+                </a>
+                <a href="#" style="padding: 5px; border-radius: 50%; background: #ffed45; color: #009900; margin-left: 10px;" title="Configurações">
+                    <i class="oi oi-cog" ></i>
+                </a>
+                <a href="#" style="padding: 5px; border-radius: 50%; background: #ffed45; color: #009900; margin-left: 10px;" title="Permissões de Acesso">
+                    <i class="oi oi-key" ></i>
+                </a>
+            </div>
+            <p class="btnLateral" id="menuCadastro" >Cadastro <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p>
+            <ul id="boxCadastro">
+                <li><a th:href="@{clientes/cadastrar}">&triangleright;Clientes</a></li>
+                <li><a href="#">&triangleright;Fornecedores</a></li>
+                <li><a href="#">&triangleright;Vendedores</a></li>
+                <li><a href="#">&triangleright;Funcionários/Sócios</a></li>
+                <li><a href="#">&triangleright;Serviços</a></li>
+                <li><p class="btnLateral" id="menuPreco">Preços <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p></li>
             </ul>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item"><span class="nav-link active" >Departamentos</span></li>
-                <li class="nav-item"><a class="nav-link"
-                                        href="#"> <i class="oi oi-plus"></i> <span>Cadastrar</span>
-                    </a></li>
-                <li class="nav-item "><a class="nav-link"
-                                        href="#"> <i class="oi oi-spreadsheet"></i>
-                        <span>Listar </span>
-                    </a></li>
-            </ul>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item"><span class="nav-link active" >Cargos</span></li>
-                <li class="nav-item"><a class="nav-link" 
-                                        href="#"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
-                    </a></li>
-                <li class="nav-item"><a class="nav-link" 
-                                        href="#"> <i
-                            class="oi oi-spreadsheet"></i> <span>Listar </span>
-                    </a></li>
-            </ul>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li class="nav-item"><span class="nav-link active">Funcionários</span></li>
-                <li class="nav-item"><a class="nav-link" 
-                                        href="#"> <i class="oi oi-plus"></i> <span>Cadastrar </span>
-                    </a></li>
-                <li class="nav-item"><a class="nav-link" 
-                                        href="#"> <i class="oi oi-spreadsheet"></i> <span>Listar </span>
-                    </a></li>
+            <ul id="boxPrecos">
+                <li><a href="#">&triangleright;Tabela de Preços</a></li>
+                <li><a href="#">&triangleright;Faixas de Preços</a></li>
+                <li><a href="#">&triangleright;Tipos de Preços</a></li>
+            </ul>                
+            <p class="btnLateral" id="menuServicos">Servicos <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p>
+            <ul id="boxServicos">
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
             </ul>
         </nav>
     </body>

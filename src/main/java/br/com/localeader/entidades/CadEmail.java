@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.localeader.model;
+package br.com.localeader.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -29,33 +29,24 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Leandro Laurindo
  */
 @Entity
-@Table(name = "cad_fornecedor", catalog = "localeader", schema = "public")
+@Table(name = "cad_email", catalog = "localeader", schema = "public")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CadFornecedor.findAll", query = "SELECT c FROM CadFornecedor c")
-    , @NamedQuery(name = "CadFornecedor.findByIdFornecedor", query = "SELECT c FROM CadFornecedor c WHERE c.idFornecedor = :idFornecedor")
-    , @NamedQuery(name = "CadFornecedor.findByAgencia", query = "SELECT c FROM CadFornecedor c WHERE c.agencia = :agencia")
-    , @NamedQuery(name = "CadFornecedor.findByBanco", query = "SELECT c FROM CadFornecedor c WHERE c.banco = :banco")
-    , @NamedQuery(name = "CadFornecedor.findByConta", query = "SELECT c FROM CadFornecedor c WHERE c.conta = :conta")
-    , @NamedQuery(name = "CadFornecedor.findByDataAlteracao", query = "SELECT c FROM CadFornecedor c WHERE c.dataAlteracao = :dataAlteracao")
-    , @NamedQuery(name = "CadFornecedor.findByDataInsercao", query = "SELECT c FROM CadFornecedor c WHERE c.dataInsercao = :dataInsercao")
-    , @NamedQuery(name = "CadFornecedor.findBySegmentoFk", query = "SELECT c FROM CadFornecedor c WHERE c.segmentoFk = :segmentoFk")})
-public class CadFornecedor implements Serializable {
+    @NamedQuery(name = "CadEmail.findAll", query = "SELECT c FROM CadEmail c")
+    , @NamedQuery(name = "CadEmail.findByIdEmail", query = "SELECT c FROM CadEmail c WHERE c.idEmail = :idEmail")
+    , @NamedQuery(name = "CadEmail.findByDataAlteracao", query = "SELECT c FROM CadEmail c WHERE c.dataAlteracao = :dataAlteracao")
+    , @NamedQuery(name = "CadEmail.findByDataInsercao", query = "SELECT c FROM CadEmail c WHERE c.dataInsercao = :dataInsercao")
+    , @NamedQuery(name = "CadEmail.findByEmail", query = "SELECT c FROM CadEmail c WHERE c.email = :email")
+    , @NamedQuery(name = "CadEmail.findByObservacao", query = "SELECT c FROM CadEmail c WHERE c.observacao = :observacao")
+    , @NamedQuery(name = "CadEmail.findBySite", query = "SELECT c FROM CadEmail c WHERE c.site = :site")})
+public class CadEmail implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_fornecedor")
-    private Integer idFornecedor;
-    @Size(max = 5)
-    @Column(name = "agencia")
-    private String agencia;
-    @Column(name = "banco")
-    private Integer banco;
-    @Size(max = 15)
-    @Column(name = "conta")
-    private String conta;
+    @Column(name = "id_email")
+    private Integer idEmail;
     @Basic(optional = false)
     @NotNull
     @Column(name = "data_alteracao")
@@ -66,8 +57,18 @@ public class CadFornecedor implements Serializable {
     @Column(name = "data_insercao")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataInsercao;
-    @Column(name = "segmento_fk")
-    private Integer segmentoFk;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "email", unique = true)
+    private String email;
+    @Size(max = 200)
+    @Column(name = "observacao")
+    private String observacao;
+    @Size(max = 100)
+    @Column(name = "site")
+    private String site;
     @JoinColumn(name = "documento_fk", referencedColumnName = "id_documentos")
     @ManyToOne(optional = false)
     private CadDocumentos documentoFk;
@@ -75,49 +76,26 @@ public class CadFornecedor implements Serializable {
     @ManyToOne(optional = false)
     private Usuario usuarioFk;
 
-    public CadFornecedor() {
+    public CadEmail() {
     }
 
-    public CadFornecedor(Integer idFornecedor) {
-        this.idFornecedor = idFornecedor;
+    public CadEmail(Integer idEmail) {
+        this.idEmail = idEmail;
     }
 
-    public CadFornecedor(Integer idFornecedor, Date dataAlteracao, Date dataInsercao) {
-        this.idFornecedor = idFornecedor;
+    public CadEmail(Integer idEmail, Date dataAlteracao, Date dataInsercao, String email) {
+        this.idEmail = idEmail;
         this.dataAlteracao = dataAlteracao;
         this.dataInsercao = dataInsercao;
+        this.email = email;
     }
 
-    public Integer getIdFornecedor() {
-        return idFornecedor;
+    public Integer getIdEmail() {
+        return idEmail;
     }
 
-    public void setIdFornecedor(Integer idFornecedor) {
-        this.idFornecedor = idFornecedor;
-    }
-
-    public String getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(String agencia) {
-        this.agencia = agencia;
-    }
-
-    public Integer getBanco() {
-        return banco;
-    }
-
-    public void setBanco(Integer banco) {
-        this.banco = banco;
-    }
-
-    public String getConta() {
-        return conta;
-    }
-
-    public void setConta(String conta) {
-        this.conta = conta;
+    public void setIdEmail(Integer idEmail) {
+        this.idEmail = idEmail;
     }
 
     public Date getDataAlteracao() {
@@ -136,12 +114,28 @@ public class CadFornecedor implements Serializable {
         this.dataInsercao = dataInsercao;
     }
 
-    public Integer getSegmentoFk() {
-        return segmentoFk;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSegmentoFk(Integer segmentoFk) {
-        this.segmentoFk = segmentoFk;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+    public String getSite() {
+        return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
     }
 
     public CadDocumentos getDocumentoFk() {
@@ -163,18 +157,18 @@ public class CadFornecedor implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idFornecedor != null ? idFornecedor.hashCode() : 0);
+        hash += (idEmail != null ? idEmail.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CadFornecedor)) {
+        if (!(object instanceof CadEmail)) {
             return false;
         }
-        CadFornecedor other = (CadFornecedor) object;
-        if ((this.idFornecedor == null && other.idFornecedor != null) || (this.idFornecedor != null && !this.idFornecedor.equals(other.idFornecedor))) {
+        CadEmail other = (CadEmail) object;
+        if ((this.idEmail == null && other.idEmail != null) || (this.idEmail != null && !this.idEmail.equals(other.idEmail))) {
             return false;
         }
         return true;
@@ -182,7 +176,7 @@ public class CadFornecedor implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.localeader.model.CadFornecedor[ idFornecedor=" + idFornecedor + " ]";
+        return "br.com.localeader.model.CadEmail[ idEmail=" + idEmail + " ]";
     }
     
 }

@@ -7,7 +7,7 @@ package br.com.localeader.dao.impl;
 
 import br.com.localeader.dao.AbstractDao;
 import br.com.localeader.dao.CadServicosDao;
-import br.com.localeader.model.CadServicos;
+import br.com.localeader.entidades.CadServicos;
 import org.springframework.stereotype.Repository;
 
 /**

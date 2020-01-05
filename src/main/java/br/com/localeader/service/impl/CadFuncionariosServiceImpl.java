@@ -6,7 +6,7 @@
 package br.com.localeader.service.impl;
 
 import br.com.localeader.dao.CadFuncionariosDao;
-import br.com.localeader.model.CadFuncionarios;
+import br.com.localeader.entidades.CadFuncionarios;
 import br.com.localeader.service.CadFuncionariosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Leandro Laurindo
  */
 @Service
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 public class CadFuncionariosServiceImpl implements CadFuncionariosService{
     
     @Autowired
@@ -26,7 +26,7 @@ public class CadFuncionariosServiceImpl implements CadFuncionariosService{
 
     @Override
     public void salvar(CadFuncionarios funcionarios) {
-        salvar(funcionarios);
+        dao.save(funcionarios);
     }
 
     @Override

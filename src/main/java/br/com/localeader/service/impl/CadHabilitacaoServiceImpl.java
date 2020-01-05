@@ -6,7 +6,7 @@
 package br.com.localeader.service.impl;
 
 import br.com.localeader.dao.CadHabilitacaoDao;
-import br.com.localeader.model.CadHabilitacao;
+import br.com.localeader.entidades.CadHabilitacao;
 import br.com.localeader.service.CadHabilitacaoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

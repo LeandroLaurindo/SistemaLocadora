@@ -6,8 +6,9 @@
 package br.com.localeader.service.impl;
 
 import br.com.localeader.dao.UsuarioDao;
-import br.com.localeader.model.Usuario;
+import br.com.localeader.entidades.Usuario;
 import br.com.localeader.service.UsuarioService;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,14 +20,14 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional(readOnly = false)
-public class UsuarioServiceImpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     private UsuarioDao dao;
-    
+
     @Override
     public void salvar(Usuario usuario) {
-      dao.save(usuario);
+        dao.save(usuario);
     }
 
     @Override
@@ -42,20 +43,32 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Override
     @Transactional(readOnly = true)
     public Usuario buscarPorId(Integer id) {
-      return dao.findById(id);
+        return dao.findById(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Usuario buscarPorLogin(String login) {
-        String jqql = "SELECT u FROM Usuario u WHERE u.login ='"+login+"'";
-     return dao.buscarEntity(jqql);
+        return dao.findByLogin(login);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     @Transactional(readOnly = true)
     public List<Usuario> buscarTodos() {
         return dao.findAll();
     }
-    
+
+   
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean usuarioExiste(String login) {
+        Usuario usu = dao.findByLogin(login);
+        return usu.getIdUsuario() != null;
+    }
+
 }

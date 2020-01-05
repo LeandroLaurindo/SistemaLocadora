@@ -20,8 +20,7 @@ import javax.persistence.TypedQuery;
  */
 public abstract class AbstractDao<T, PK extends Serializable> {
 
-    private final Class<T> entityClass
-            = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    private final Class<T> entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -48,19 +47,23 @@ public abstract class AbstractDao<T, PK extends Serializable> {
 
     @SuppressWarnings("JPQLValidation")
     public List<T> findAll() {
-        return entityManager.createQuery("FROM" + entityClass.getSimpleName(), entityClass).getResultList();
+        return entityManager.createQuery("FROM " + entityClass.getSimpleName(), entityClass).getResultList();
     }
-    public T  buscarEntity(String jpql){
+
+    public T buscarEntity(String jpql) {
         return (T) entityManager.createQuery(jpql).getSingleResult();
     }
-    
-  protected List<T> createQuery(String jpql, Object...params){
-      TypedQuery<T> query = entityManager.createQuery(jpql, entityClass);
-      for (int i = 0; i < params.length; i++) {
-          query.setParameter(i+1, params[i]);
-      }
-      return query.getResultList();
-  }
 
-  
+    public List<T> listarDados(String jpql) {
+        return entityManager.createQuery(jpql).getResultList();
+    }
+
+    protected List<T> createQuery(String jpql, Object... params) {
+        TypedQuery<T> query = entityManager.createQuery(jpql, entityClass);
+        for (int i = 0; i < params.length; i++) {
+            query.setParameter(i + 1, params[i]);
+        }
+        return query.getResultList();
+    }
+
 }

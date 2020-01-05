@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.localeader.model;
+package br.com.localeader.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -21,7 +21,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -29,24 +28,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Leandro Laurindo
  */
 @Entity
-@Table(name = "cad_email", catalog = "localeader", schema = "public")
+@Table(name = "cad_vendedor", catalog = "localeader", schema = "public")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CadEmail.findAll", query = "SELECT c FROM CadEmail c")
-    , @NamedQuery(name = "CadEmail.findByIdEmail", query = "SELECT c FROM CadEmail c WHERE c.idEmail = :idEmail")
-    , @NamedQuery(name = "CadEmail.findByDataAlteracao", query = "SELECT c FROM CadEmail c WHERE c.dataAlteracao = :dataAlteracao")
-    , @NamedQuery(name = "CadEmail.findByDataInsercao", query = "SELECT c FROM CadEmail c WHERE c.dataInsercao = :dataInsercao")
-    , @NamedQuery(name = "CadEmail.findByEmail", query = "SELECT c FROM CadEmail c WHERE c.email = :email")
-    , @NamedQuery(name = "CadEmail.findByObservacao", query = "SELECT c FROM CadEmail c WHERE c.observacao = :observacao")
-    , @NamedQuery(name = "CadEmail.findBySite", query = "SELECT c FROM CadEmail c WHERE c.site = :site")})
-public class CadEmail implements Serializable {
+    @NamedQuery(name = "CadVendedor.findAll", query = "SELECT c FROM CadVendedor c")
+    , @NamedQuery(name = "CadVendedor.findByIdVendedor", query = "SELECT c FROM CadVendedor c WHERE c.idVendedor = :idVendedor")
+    , @NamedQuery(name = "CadVendedor.findByDataAlteracao", query = "SELECT c FROM CadVendedor c WHERE c.dataAlteracao = :dataAlteracao")
+    , @NamedQuery(name = "CadVendedor.findByDataInsercao", query = "SELECT c FROM CadVendedor c WHERE c.dataInsercao = :dataInsercao")})
+public class CadVendedor implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_email")
-    private Integer idEmail;
+    @Column(name = "id_vendedor")
+    private Integer idVendedor;
     @Basic(optional = false)
     @NotNull
     @Column(name = "data_alteracao")
@@ -57,18 +53,6 @@ public class CadEmail implements Serializable {
     @Column(name = "data_insercao")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataInsercao;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "email", unique = true)
-    private String email;
-    @Size(max = 200)
-    @Column(name = "observacao")
-    private String observacao;
-    @Size(max = 100)
-    @Column(name = "site")
-    private String site;
     @JoinColumn(name = "documento_fk", referencedColumnName = "id_documentos")
     @ManyToOne(optional = false)
     private CadDocumentos documentoFk;
@@ -76,26 +60,25 @@ public class CadEmail implements Serializable {
     @ManyToOne(optional = false)
     private Usuario usuarioFk;
 
-    public CadEmail() {
+    public CadVendedor() {
     }
 
-    public CadEmail(Integer idEmail) {
-        this.idEmail = idEmail;
+    public CadVendedor(Integer idVendedor) {
+        this.idVendedor = idVendedor;
     }
 
-    public CadEmail(Integer idEmail, Date dataAlteracao, Date dataInsercao, String email) {
-        this.idEmail = idEmail;
+    public CadVendedor(Integer idVendedor, Date dataAlteracao, Date dataInsercao) {
+        this.idVendedor = idVendedor;
         this.dataAlteracao = dataAlteracao;
         this.dataInsercao = dataInsercao;
-        this.email = email;
     }
 
-    public Integer getIdEmail() {
-        return idEmail;
+    public Integer getIdVendedor() {
+        return idVendedor;
     }
 
-    public void setIdEmail(Integer idEmail) {
-        this.idEmail = idEmail;
+    public void setIdVendedor(Integer idVendedor) {
+        this.idVendedor = idVendedor;
     }
 
     public Date getDataAlteracao() {
@@ -112,30 +95,6 @@ public class CadEmail implements Serializable {
 
     public void setDataInsercao(Date dataInsercao) {
         this.dataInsercao = dataInsercao;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getObservacao() {
-        return observacao;
-    }
-
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
     }
 
     public CadDocumentos getDocumentoFk() {
@@ -157,18 +116,18 @@ public class CadEmail implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idEmail != null ? idEmail.hashCode() : 0);
+        hash += (idVendedor != null ? idVendedor.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CadEmail)) {
+        if (!(object instanceof CadVendedor)) {
             return false;
         }
-        CadEmail other = (CadEmail) object;
-        if ((this.idEmail == null && other.idEmail != null) || (this.idEmail != null && !this.idEmail.equals(other.idEmail))) {
+        CadVendedor other = (CadVendedor) object;
+        if ((this.idVendedor == null && other.idVendedor != null) || (this.idVendedor != null && !this.idVendedor.equals(other.idVendedor))) {
             return false;
         }
         return true;
@@ -176,7 +135,7 @@ public class CadEmail implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.localeader.model.CadEmail[ idEmail=" + idEmail + " ]";
+        return "br.com.localeader.model.CadVendedor[ idVendedor=" + idVendedor + " ]";
     }
     
 }

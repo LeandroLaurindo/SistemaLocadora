@@ -5,7 +5,7 @@
  */
 package br.com.localeader.service;
 
-import br.com.localeader.model.CadHabilitacao;
+import br.com.localeader.entidades.CadHabilitacao;
 import java.util.List;
 
 /**

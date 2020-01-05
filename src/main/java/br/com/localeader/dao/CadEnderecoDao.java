@@ -5,7 +5,7 @@
  */
 package br.com.localeader.dao;
 
-import br.com.localeader.model.CadEndereco;
+import br.com.localeader.entidades.CadEndereco;
 import java.util.List;
 
 /**

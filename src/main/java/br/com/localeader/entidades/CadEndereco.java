@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.localeader.model;
+package br.com.localeader.entidades;
 
 import br.com.localeader.enums.UF;
 import java.io.Serializable;

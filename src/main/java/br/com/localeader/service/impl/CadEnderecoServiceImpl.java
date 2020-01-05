@@ -7,7 +7,7 @@ package br.com.localeader.service.impl;
 
 import br.com.localeader.dao.CadEmailDao;
 import br.com.localeader.dao.CadEnderecoDao;
-import br.com.localeader.model.CadEndereco;
+import br.com.localeader.entidades.CadEndereco;
 import br.com.localeader.service.CadEnderecoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

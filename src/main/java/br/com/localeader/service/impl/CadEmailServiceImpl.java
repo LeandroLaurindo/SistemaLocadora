@@ -6,7 +6,7 @@
 package br.com.localeader.service.impl;
 
 import br.com.localeader.dao.CadEmailDao;
-import br.com.localeader.model.CadEmail;
+import br.com.localeader.entidades.CadEmail;
 import br.com.localeader.service.CadEmailService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

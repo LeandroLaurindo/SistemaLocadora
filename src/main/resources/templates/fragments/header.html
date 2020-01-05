@@ -1,20 +1,100 @@
 <!DOCTYPE html>
 <html>
-<head> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	<header th:fragment="cabecalho">
-		<nav class="navbar navbar-inverse navbar navbar-dark bg-dark fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="btn btn-dark navbar-toggle pull-left">
-						<i class="oi oi-menu"></i>
-					</button>
-					<a class="navbar-brand " href="#">Curso Spring Boot</a>
-				</div>
-			</div>
-		</nav>
-	</header>
-</body>
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <header th:fragment="cabecalho" class="header">
+            
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #009900;">
+                <a class="navbar" href="/" style="border-radius: 30%;">
+                    <img th:src="@{/img/logo.png}" alt="logo" width="70" height="70" style="border-radius: 50%; margin: 5px;"/>
+                </a>
+                <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav mr-auto" style="font-size: 12px;">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(página atual)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="oi oi-arrow-right" style="color: #009900;" ></i> Retirada</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="oi oi-arrow-left" style="color: #009900;" ></i> Devolução</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="oi oi-calendar" style="color: #009900;" ></i>Veículos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="oi oi-check" style="color: #009900;" ></i> Proposta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <i class="oi oi-calendar" style="color: #009900;" ></i> Reserva</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <i class="oi oi-spreadsheet" style="color: #009900;" ></i> Multas</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="oi oi-dolar"  style="color: #009900;"></i> Fatura/Nota Débito
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="Outros">
+                                <a class="dropdown-item" href="#">Padrão - Locação de Veículo</a>
+                                <a class="dropdown-item" href="#">Avaria de Veículo</a>
+                                <a class="dropdown-item" href="#">Avulsa</a>
+                                <a class="dropdown-item" href="#">Por Parcela</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="oi oi-spreadsheet"  style="color: #009900;"></i>   Outros
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="Outros">
+                                <a class="dropdown-item" href="#">Lembres</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Grupos</a>
+                                <a class="dropdown-item" href="#">Modelos</a>
+                                <a class="dropdown-item" href="#">Fabricantes</a>
+                                <a class="dropdown-item" href="#">Categorias</a>
+                                <a class="dropdown-item" href="#">Opcionais</a>
+                                <a class="dropdown-item" href="#">Serviços</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Substituição de Veículos</a>
+                                <a class="dropdown-item" href="#">Manutenção de Veículos</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="oi oi-spreadsheet" style="color: #009900;" ></i>   Relatórios
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="Outros">
+                                <a class="dropdown-item" href="#">Veículos</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Locações no Período</a>
+                                <a class="dropdown-item" href="#">Disponível no Período</a>
+                                <a class="dropdown-item" href="#">Multas de Trãnsito</a>
+                                <a class="dropdown-item" href="#">Manutenções</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Agenda Mensal de Veículos</a>
+                                <a class="dropdown-item" href="#">Resumo de Dias Locados por Veículos</a>
+                                <a class="dropdown-item" href="#">Resumo de Receita x Despesa por Veículo</a>
+                                <a class="dropdown-item" href="#">Lucratividade Bruta por Veículo - Caixa</a>
+                                <a class="dropdown-item" href="#">Lucratividade Bruta por Veículo - Competência</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Painel Financeiro</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                    </form>
+                   
+                </div>
+            </nav>
+        </header>
+    </body>
 </html>

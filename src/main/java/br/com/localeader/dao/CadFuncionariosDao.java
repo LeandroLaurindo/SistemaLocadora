@@ -5,7 +5,7 @@
  */
 package br.com.localeader.dao;
 
-import br.com.localeader.model.CadFuncionarios;
+import br.com.localeader.entidades.CadFuncionarios;
 import java.util.List;
 
 /**
