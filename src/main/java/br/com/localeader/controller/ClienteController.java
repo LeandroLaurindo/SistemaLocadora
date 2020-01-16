@@ -79,13 +79,13 @@ public class ClienteController {
             }
         }
         model.addAttribute("clientes", lista);
-        return "/cliete/listar";
+        return "/cliente/listar";
     }
 
     @PostMapping("/salvar")
     public String salvar(ClienteDto clienteDto, RedirectAttributes attr) {
 
-        if (serviceCliente.existeCliente(clienteDto.getCep(), clienteDto.getCnpj()) == false) {
+        if (serviceCliente.existeCliente(clienteDto.getCpf(), clienteDto.getCnpj()) == false) {
             attr.addFlashAttribute("fail", "Já existe um cliente cadastrado para o documento informado.");
         } else {
             CadPessoa  pessoa = this.converterDtoEmPessoa(clienteDto);
@@ -210,7 +210,8 @@ public class ClienteController {
         documentos.setValidadePassaporte(dto.getValidadePassaporte());
         return documentos;
     }
-     private CadHabilitacao converterEmCadHabilitacao(ClienteDto dto) {
+    
+    private CadHabilitacao converterEmCadHabilitacao(ClienteDto dto) {
         CadHabilitacao habilitacao = new CadHabilitacao();
         habilitacao.setCategoria(dto.getCategoria());
         habilitacao.setCnh(dto.getCnh());

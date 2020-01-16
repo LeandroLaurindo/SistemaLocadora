@@ -27,4 +27,6 @@ public interface CadFornecedorService {
     CadFornecedor buscarPorCpf(Integer cpf);
 
     List<CadFornecedor> buscarTodos();
+    
+    public boolean existeFornecedor(String cpf, String cnpj);
 }

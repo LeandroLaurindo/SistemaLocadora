@@ -27,4 +27,5 @@ public interface CadEnderecoService {
     CadEndereco buscarPorIdUsuario(Integer id);
 
     List<CadEndereco> buscarTodos();
+  
 }

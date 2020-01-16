@@ -65,5 +65,17 @@ public class CadFornecedorServiceImpl implements  CadFornecedorService{
         return dao.findAll();
     }
     
-    
+    @Override
+    public boolean existeFornecedor(String cpf, String cnpj) {
+        boolean retorno = false;
+        if (!cnpj.isEmpty()) {
+            String jpql = "SELECT c FROM CadFornecedor c WHERE c.documentoFk.cnpj ='" + cnpj + "'";
+            retorno = dao.buscarEntity(jpql).getIdFornecedor()!= null;
+        }
+        if (!cpf.isEmpty()) {
+            String jpql = "SELECT c FROM CadFornecedor c WHERE c.documentoFk.cpf ='" + cpf + "'";
+            retorno = dao.buscarEntity(jpql).getIdFornecedor() != null;
+        }
+        return retorno;
+    }
 }

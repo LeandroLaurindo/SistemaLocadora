@@ -15,9 +15,9 @@ import org.hibernate.validator.constraints.br.CPF;
 
 /**
  *
- * @author Leandro Laurindo
+ * @author Filip
  */
-public class ClienteDto {
+public class FuncionarioDto {
 
     private Integer idUsuario;
 
@@ -29,31 +29,22 @@ public class ClienteDto {
 
     private Integer idPessoa;
 
-    private Integer idHabilitacao;
+    private Integer idFuncionario;
 
-    private Integer idCliente;
-
-    //campos classe cliente
-    private Integer ClassificacaoFk;
-
-    private String valorCretido;
-
-    private String obsCliente;
-
-    private String origemCliente;
-
-    private String planoPgto;
-
-    private Integer representanteLegalFk;
-
-    private Integer segmentoFk;
-
-    private Integer tabelaPreocoFk;
-
-    private Integer vendedorFk;
+    //campos classe funcionario
 
     private Integer documentoFk;
 
+    private boolean ativo;
+
+    private String cargo;
+
+    private String codigo;
+
+    private Date dataAdmissao;
+
+    private Date dataDemissao;
+    
     //campos classe cadDocumentos
     @CNPJ(message = "Cnpj inválido.")
     private String cnpj;
@@ -88,15 +79,6 @@ public class ClienteDto {
     private String numero;
     private String uf;
 
-    //campos cadhabilitacao
-    private String categoria;
-    private String cnh;
-    private Date emissao;
-    private String numRegistro;
-    private String numSeguranca;
-    private String orgao;
-    private Date validade;
-
     //campos pessoa
     private String conjuge;
     @NotEmpty(message = "Data de nascimento não pode ser vazio.")
@@ -126,480 +108,662 @@ public class ClienteDto {
     @NotEmpty(message = "Telefone não pode ser vazio.")
     private String telefone;
     private Boolean whatsapp;
-
-    public ClienteDto() {
-    }
-
+    
+    /**
+     * @return the idUsuario
+     */
     public Integer getIdUsuario() {
         return idUsuario;
     }
 
+    /**
+     * @param idUsuario the idUsuario to set
+     */
     public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 
+    /**
+     * @return the idEmail
+     */
     public Integer getIdEmail() {
         return idEmail;
     }
 
+    /**
+     * @param idEmail the idEmail to set
+     */
     public void setIdEmail(Integer idEmail) {
         this.idEmail = idEmail;
     }
 
+    /**
+     * @return the idTelefone
+     */
     public Integer getIdTelefone() {
         return idTelefone;
     }
 
+    /**
+     * @param idTelefone the idTelefone to set
+     */
     public void setIdTelefone(Integer idTelefone) {
         this.idTelefone = idTelefone;
     }
 
+    /**
+     * @return the idDucumento
+     */
     public Integer getIdDucumento() {
         return idDucumento;
     }
 
+    /**
+     * @param idDucumento the idDucumento to set
+     */
     public void setIdDucumento(Integer idDucumento) {
         this.idDucumento = idDucumento;
     }
 
+    /**
+     * @return the idPessoa
+     */
     public Integer getIdPessoa() {
         return idPessoa;
     }
 
+    /**
+     * @param idPessoa the idPessoa to set
+     */
     public void setIdPessoa(Integer idPessoa) {
         this.idPessoa = idPessoa;
     }
 
-    public Integer getIdHabilitacao() {
-        return idHabilitacao;
+    /**
+     * @return the ativo
+     */
+    public boolean isAtivo() {
+        return ativo;
     }
 
-    public void setIdHabilitacao(Integer idHabilitacao) {
-        this.idHabilitacao = idHabilitacao;
+    /**
+     * @param ativo the ativo to set
+     */
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
-    public Integer getIdCliente() {
-        return idCliente;
+    /**
+     * @return the cargo
+     */
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    /**
+     * @param cargo the cargo to set
+     */
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
-    public Integer getClassificacaoFk() {
-        return ClassificacaoFk;
+    /**
+     * @return the codigo
+     */
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setClassificacaoFk(Integer ClassificacaoFk) {
-        this.ClassificacaoFk = ClassificacaoFk;
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public String getValorCretido() {
-        return valorCretido;
+    /**
+     * @return the dataAdmissao
+     */
+    public Date getDataAdmissao() {
+        return dataAdmissao;
     }
 
-    public void setValorCretido(String valorCretido) {
-        this.valorCretido = valorCretido;
+    /**
+     * @param dataAdmissao the dataAdmissao to set
+     */
+    public void setDataAdmissao(Date dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
     }
 
-    public String getObsCliente() {
-        return obsCliente;
+    /**
+     * @return the dataDemissao
+     */
+    public Date getDataDemissao() {
+        return dataDemissao;
     }
 
-    public void setObsCliente(String obsCliente) {
-        this.obsCliente = obsCliente;
+    /**
+     * @param dataDemissao the dataDemissao to set
+     */
+    public void setDataDemissao(Date dataDemissao) {
+        this.dataDemissao = dataDemissao;
     }
 
-    public String getOrigemCliente() {
-        return origemCliente;
-    }
-
-    public void setOrigemCliente(String origemCliente) {
-        this.origemCliente = origemCliente;
-    }
-
-    public String getPlanoPgto() {
-        return planoPgto;
-    }
-
-    public void setPlanoPgto(String planoPgto) {
-        this.planoPgto = planoPgto;
-    }
-
-    public Integer getRepresentanteLegalFk() {
-        return representanteLegalFk;
-    }
-
-    public void setRepresentanteLegalFk(Integer representanteLegalFk) {
-        this.representanteLegalFk = representanteLegalFk;
-    }
-
-    public Integer getSegmentoFk() {
-        return segmentoFk;
-    }
-
-    public void setSegmentoFk(Integer segmentoFk) {
-        this.segmentoFk = segmentoFk;
-    }
-
-    public Integer getTabelaPreocoFk() {
-        return tabelaPreocoFk;
-    }
-
-    public void setTabelaPreocoFk(Integer tabelaPreocoFk) {
-        this.tabelaPreocoFk = tabelaPreocoFk;
-    }
-
-    public Integer getVendedorFk() {
-        return vendedorFk;
-    }
-
-    public void setVendedorFk(Integer vendedorFk) {
-        this.vendedorFk = vendedorFk;
-    }
-
+    /**
+     * @return the documentoFk
+     */
     public Integer getDocumentoFk() {
         return documentoFk;
     }
 
+    /**
+     * @param documentoFk the documentoFk to set
+     */
     public void setDocumentoFk(Integer documentoFk) {
         this.documentoFk = documentoFk;
     }
 
+    /**
+     * @return the cnpj
+     */
     public String getCnpj() {
         return cnpj;
     }
 
+    /**
+     * @param cnpj the cnpj to set
+     */
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
+    /**
+     * @return the cpf
+     */
     public String getCpf() {
         return cpf;
     }
 
+    /**
+     * @param cpf the cpf to set
+     */
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
+    /**
+     * @return the inscricaoEstudal
+     */
     public String getInscricaoEstudal() {
         return inscricaoEstudal;
     }
 
+    /**
+     * @param inscricaoEstudal the inscricaoEstudal to set
+     */
     public void setInscricaoEstudal(String inscricaoEstudal) {
         this.inscricaoEstudal = inscricaoEstudal;
     }
 
+    /**
+     * @return the inscricaoMunicipal
+     */
     public String getInscricaoMunicipal() {
         return inscricaoMunicipal;
     }
 
+    /**
+     * @param inscricaoMunicipal the inscricaoMunicipal to set
+     */
     public void setInscricaoMunicipal(String inscricaoMunicipal) {
         this.inscricaoMunicipal = inscricaoMunicipal;
     }
 
+    /**
+     * @return the passaporte
+     */
     public String getPassaporte() {
         return passaporte;
     }
 
+    /**
+     * @param passaporte the passaporte to set
+     */
     public void setPassaporte(String passaporte) {
         this.passaporte = passaporte;
     }
 
+    /**
+     * @return the rg
+     */
     public String getRg() {
         return rg;
     }
 
+    /**
+     * @param rg the rg to set
+     */
     public void setRg(String rg) {
         this.rg = rg;
     }
 
+    /**
+     * @return the suframa
+     */
     public String getSuframa() {
         return suframa;
     }
 
+    /**
+     * @param suframa the suframa to set
+     */
     public void setSuframa(String suframa) {
         this.suframa = suframa;
     }
 
-    public int getUsuarioFk() {
-        return usuarioFk;
-    }
-
-    public void setUsuarioFk(int usuarioFk) {
-        this.usuarioFk = usuarioFk;
-    }
-
-    public Integer getPessoaFk() {
-        return pessoaFk;
-    }
-
-    public void setPessoaFk(Integer pessoaFk) {
-        this.pessoaFk = pessoaFk;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getObservacaoEmail() {
-        return observacaoEmail;
-    }
-
-    public void setObservacaoEmail(String observacaoEmail) {
-        this.observacaoEmail = observacaoEmail;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public String getCnh() {
-        return cnh;
-    }
-
-    public void setCnh(String cnh) {
-        this.cnh = cnh;
-    }
-
-    public Date getEmissao() {
-        return emissao;
-    }
-
-    public void setEmissao(Date emissao) {
-        this.emissao = emissao;
-    }
-
-    public String getNumRegistro() {
-        return numRegistro;
-    }
-
-    public void setNumRegistro(String numRegistro) {
-        this.numRegistro = numRegistro;
-    }
-
-    public String getNumSeguranca() {
-        return numSeguranca;
-    }
-
-    public void setNumSeguranca(String numSeguranca) {
-        this.numSeguranca = numSeguranca;
-    }
-
-    public String getOrgao() {
-        return orgao;
-    }
-
-    public void setOrgao(String orgao) {
-        this.orgao = orgao;
-    }
-
-    public Date getValidade() {
-        return validade;
-    }
-
-    public void setValidade(Date validade) {
-        this.validade = validade;
-    }
-
-    public String getConjuge() {
-        return conjuge;
-    }
-
-    public void setConjuge(String conjuge) {
-        this.conjuge = conjuge;
-    }
-
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
-    }
-
-    public Boolean getEstrangeiro() {
-        return estrangeiro;
-    }
-
-    public void setEstrangeiro(Boolean estrangeiro) {
-        this.estrangeiro = estrangeiro;
-    }
-
-    public String getNacionalidade() {
-        return nacionalidade;
-    }
-
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public String getProfissao() {
-        return profissao;
-    }
-
-    public void setProfissao(String profissao) {
-        this.profissao = profissao;
-    }
-
-    public String getRazaoSocial() {
-        return razaoSocial;
-    }
-
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getSituacao() {
-        return situacao;
-    }
-
-    public void setSituacao(String situacao) {
-        this.situacao = situacao;
-    }
-
-    public String getTipoPessoa() {
-        return tipoPessoa;
-    }
-
-    public void setTipoPessoa(String tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
-    }
-
-    public int getDdd() {
-        return ddd;
-    }
-
-    public void setDdd(int ddd) {
-        this.ddd = ddd;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public Boolean getWhatsapp() {
-        return whatsapp;
-    }
-
-    public void setWhatsapp(Boolean whatsapp) {
-        this.whatsapp = whatsapp;
-    }
-
+    /**
+     * @return the validadePassaporte
+     */
     public Date getValidadePassaporte() {
         return validadePassaporte;
     }
 
+    /**
+     * @param validadePassaporte the validadePassaporte to set
+     */
     public void setValidadePassaporte(Date validadePassaporte) {
         this.validadePassaporte = validadePassaporte;
     }
 
+    /**
+     * @return the usuarioFk
+     */
+    public int getUsuarioFk() {
+        return usuarioFk;
+    }
+
+    /**
+     * @param usuarioFk the usuarioFk to set
+     */
+    public void setUsuarioFk(int usuarioFk) {
+        this.usuarioFk = usuarioFk;
+    }
+
+    /**
+     * @return the pessoaFk
+     */
+    public Integer getPessoaFk() {
+        return pessoaFk;
+    }
+
+    /**
+     * @param pessoaFk the pessoaFk to set
+     */
+    public void setPessoaFk(Integer pessoaFk) {
+        this.pessoaFk = pessoaFk;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the observacaoEmail
+     */
+    public String getObservacaoEmail() {
+        return observacaoEmail;
+    }
+
+    /**
+     * @param observacaoEmail the observacaoEmail to set
+     */
+    public void setObservacaoEmail(String observacaoEmail) {
+        this.observacaoEmail = observacaoEmail;
+    }
+
+    /**
+     * @return the site
+     */
+    public String getSite() {
+        return site;
+    }
+
+    /**
+     * @param site the site to set
+     */
+    public void setSite(String site) {
+        this.site = site;
+    }
+
+    /**
+     * @return the bairro
+     */
     public String getBairro() {
         return bairro;
     }
 
+    /**
+     * @param bairro the bairro to set
+     */
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
-   
+
+    /**
+     * @return the cep
+     */
+    public String getCep() {
+        return cep;
+    }
+
+    /**
+     * @param cep the cep to set
+     */
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    /**
+     * @return the cidade
+     */
+    public String getCidade() {
+        return cidade;
+    }
+
+    /**
+     * @param cidade the cidade to set
+     */
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    /**
+     * @return the complemento
+     */
+    public String getComplemento() {
+        return complemento;
+    }
+
+    /**
+     * @param complemento the complemento to set
+     */
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    /**
+     * @return the logradouro
+     */
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    /**
+     * @param logradouro the logradouro to set
+     */
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    /**
+     * @return the numero
+     */
+    public String getNumero() {
+        return numero;
+    }
+
+    /**
+     * @param numero the numero to set
+     */
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    /**
+     * @return the uf
+     */
+    public String getUf() {
+        return uf;
+    }
+
+    /**
+     * @param uf the uf to set
+     */
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    /**
+     * @return the conjuge
+     */
+    public String getConjuge() {
+        return conjuge;
+    }
+
+    /**
+     * @param conjuge the conjuge to set
+     */
+    public void setConjuge(String conjuge) {
+        this.conjuge = conjuge;
+    }
+
+    /**
+     * @return the dataNascimento
+     */
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    /**
+     * @param dataNascimento the dataNascimento to set
+     */
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    /**
+     * @return the estadoCivil
+     */
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    /**
+     * @param estadoCivil the estadoCivil to set
+     */
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    /**
+     * @return the estrangeiro
+     */
+    public Boolean getEstrangeiro() {
+        return estrangeiro;
+    }
+
+    /**
+     * @param estrangeiro the estrangeiro to set
+     */
+    public void setEstrangeiro(Boolean estrangeiro) {
+        this.estrangeiro = estrangeiro;
+    }
+
+    /**
+     * @return the nacionalidade
+     */
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+    /**
+     * @param nacionalidade the nacionalidade to set
+     */
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the pais
+     */
+    public String getPais() {
+        return pais;
+    }
+
+    /**
+     * @param pais the pais to set
+     */
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    /**
+     * @return the profissao
+     */
+    public String getProfissao() {
+        return profissao;
+    }
+
+    /**
+     * @param profissao the profissao to set
+     */
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
+
+    /**
+     * @return the razaoSocial
+     */
+    public String getRazaoSocial() {
+        return razaoSocial;
+    }
+
+    /**
+     * @param razaoSocial the razaoSocial to set
+     */
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
+    }
+
+    /**
+     * @return the sexo
+     */
+    public String getSexo() {
+        return sexo;
+    }
+
+    /**
+     * @param sexo the sexo to set
+     */
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    /**
+     * @return the situacao
+     */
+    public String getSituacao() {
+        return situacao;
+    }
+
+    /**
+     * @param situacao the situacao to set
+     */
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+
+    /**
+     * @return the tipoPessoa
+     */
+    public String getTipoPessoa() {
+        return tipoPessoa;
+    }
+
+    /**
+     * @param tipoPessoa the tipoPessoa to set
+     */
+    public void setTipoPessoa(String tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
+    }
+
+    /**
+     * @return the ddd
+     */
+    public int getDdd() {
+        return ddd;
+    }
+
+    /**
+     * @param ddd the ddd to set
+     */
+    public void setDdd(int ddd) {
+        this.ddd = ddd;
+    }
+
+    /**
+     * @return the telefone
+     */
+    public String getTelefone() {
+        return telefone;
+    }
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    /**
+     * @return the whatsapp
+     */
+    public Boolean getWhatsapp() {
+        return whatsapp;
+    }
+
+    /**
+     * @param whatsapp the whatsapp to set
+     */
+    public void setWhatsapp(Boolean whatsapp) {
+        this.whatsapp = whatsapp;
+    }
+
+    /**
+     * @return the idFuncionario
+     */
+    public Integer getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    /**
+     * @param idFuncionario the idFuncionario to set
+     */
+    public void setIdFuncionario(Integer idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
 }

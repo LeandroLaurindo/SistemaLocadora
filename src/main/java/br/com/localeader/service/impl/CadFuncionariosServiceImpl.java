@@ -71,4 +71,18 @@ public class CadFuncionariosServiceImpl implements CadFuncionariosService{
     public List<CadFuncionarios> buscarTodos() {
         return dao.findAll();
     }
+    
+    @Override
+    public boolean existeFuncionario(String cpf, String cnpj) {
+        boolean retorno = false;
+        if (!cnpj.isEmpty()) {
+            String jpql = "SELECT c FROM CadFuncionarios c WHERE c.documentoFk.cnpj ='" + cnpj + "'";
+            retorno = dao.buscarEntity(jpql).getIdFuncionario()!= null;
+        }
+        if (!cpf.isEmpty()) {
+            String jpql = "SELECT c FROM CadFuncionarios c WHERE c.documentoFk.cpf ='" + cpf + "'";
+            retorno = dao.buscarEntity(jpql).getIdFuncionario()!= null;
+        }
+        return retorno;
+    }
 }

@@ -27,4 +27,6 @@ public interface CadVendedorService {
     CadVendedor buscarPorCpf(String cpf);
 
     List<CadVendedor> buscarTodos();
+    
+    public boolean existeVendedor(String cpf, String cnpj);
 }

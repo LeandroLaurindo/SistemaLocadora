@@ -29,4 +29,6 @@ public interface CadFuncionariosService {
     CadFuncionarios buscarPorCpf(Integer cpf);
 
     List<CadFuncionarios> buscarTodos();
+    
+    public boolean existeFuncionario(String cpf, String cnpj);
 }
