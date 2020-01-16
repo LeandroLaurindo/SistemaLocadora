@@ -37,6 +37,7 @@ $(document).ready(function () {
  var url = '';
 $j('button[id*="btn_"]').on('click', function () {
     url = "http://localhost:8080/" + $j(this).attr('id').split("_")[1];
+        alert(url);
 });
 
 $j('#ok_confirm').on('click', function () {

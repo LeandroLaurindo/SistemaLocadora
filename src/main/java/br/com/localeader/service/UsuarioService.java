@@ -7,6 +7,10 @@ package br.com.localeader.service;
 
 import br.com.localeader.entidades.Usuario;
 import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  *
@@ -26,6 +30,10 @@ public interface UsuarioService {
 
     List<Usuario> buscarTodos();
     
+    Page<Usuario> getPaginatedUsuarios(Pageable pageable);
+    
     boolean usuarioExiste(String login);
+    
+    public Map<String , Object> buscarUsuarios(HttpServletRequest request);
 
 }

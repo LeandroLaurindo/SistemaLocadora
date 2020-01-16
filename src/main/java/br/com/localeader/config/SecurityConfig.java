@@ -34,6 +34,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
                 .antMatchers("/","/entrar","/entrar-error").permitAll()
                 //acessos privados master
                 .antMatchers("/usuarios/**").hasAuthority("MASTER")
+                .antMatchers("/datatables/server").hasAuthority("MASTER")
                 .anyRequest().authenticated()
                 .and().formLogin()
                 .loginPage("/entrar")

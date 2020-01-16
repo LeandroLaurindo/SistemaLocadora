@@ -8,7 +8,6 @@ package br.com.localeader.service;
 import br.com.localeader.dao.UsuarioDao;
 import br.com.localeader.entidades.Perfis;
 import br.com.localeader.entidades.Usuario;
-import com.sun.org.apache.xml.internal.serializer.utils.SystemIDResolver;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -49,7 +48,6 @@ public class LoginService implements UserDetailsService {
         String[] authorities = new String[listaDePerfils.size()];
         for (int i = 0; i < listaDePerfils.size(); i++) {
             authorities[i] = listaDePerfils.get(i).getNomePerfil().trim();
-            System.out.println(authorities[i]);
         }
         return authorities;
     }

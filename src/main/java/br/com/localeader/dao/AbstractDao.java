@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import org.springframework.data.domain.Page;
 
 /**
  *
@@ -58,6 +59,7 @@ public abstract class AbstractDao<T, PK extends Serializable> {
         return entityManager.createQuery(jpql).getResultList();
     }
 
+            
     protected List<T> createQuery(String jpql, Object... params) {
         TypedQuery<T> query = entityManager.createQuery(jpql, entityClass);
         for (int i = 0; i < params.length; i++) {

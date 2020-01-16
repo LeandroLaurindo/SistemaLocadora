@@ -6,158 +6,158 @@
         <title>Spring Security</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-         <link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css}" rel="stylesheet" />
         <link th:href="@{/css/sistema.css}" rel="stylesheet" type="text/css"/>
     </head>
 
     <body>
         <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #eab822!important; font-size: 12px">
-            <a class="navbar" href="/home" style="border-radius: 30%;">
-                <img th:src="@{/img/logo.png}" alt="logo" width="70" height="70" style="border-radius: 50%; margin: 5px;"/>
-            </a>
-            <button class="navbar-toggler"  type="button" data-toggle="collapse"  aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #eab822!important; font-size: 12px">
+                <a class="navbar" href="/home" style="border-radius: 30%;">
+                    <img th:src="@{/img/logo.png}" alt="logo" width="70" height="70" style="border-radius: 50%; margin: 5px;"/>
+                </a>
+                <button class="navbar-toggler"  type="button" data-toggle="collapse"  aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/home">Home <span class="sr-only">(página atual)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="oi oi-arrow-right" style="color: #991e1e;" ></span> Retirada</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="oi oi-arrow-left" style="color: #991e1e;" ></i> Devolução</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="oi oi-calendar" style="color: #991e1e;" ></i>Veículos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="oi oi-check" style="color: #991e1e;" ></i> Proposta</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"> <i class="oi oi-calendar" style="color: #991e1e;" ></i> Reserva</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"> <i class="oi oi-spreadsheet" style="color: #991e1e;" ></i> Multas</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="oi oi-euro"  style="color: #991e1e;"></i> Fatura/Nota Débito
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="Outros">
-                            <a class="dropdown-item" href="#">Padrão - Locação de Veículo</a>
-                            <a class="dropdown-item" href="#">Avaria de Veículo</a>
-                            <a class="dropdown-item" href="#">Avulsa</a>
-                            <a class="dropdown-item" href="#">Por Parcela</a>
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/home">Home <span class="sr-only">(página atual)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span class="oi oi-arrow-right" style="color: #991e1e;" ></span> Retirada</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="oi oi-arrow-left" style="color: #991e1e;" ></i> Devolução</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="oi oi-calendar" style="color: #991e1e;" ></i>Veículos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="oi oi-check" style="color: #991e1e;" ></i> Proposta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <i class="oi oi-calendar" style="color: #991e1e;" ></i> Reserva</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <i class="oi oi-spreadsheet" style="color: #991e1e;" ></i> Multas</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="oi oi-euro"  style="color: #991e1e;"></i> Fatura/Nota Débito
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="Outros">
+                                <a class="dropdown-item" href="#">Padrão - Locação de Veículo</a>
+                                <a class="dropdown-item" href="#">Avaria de Veículo</a>
+                                <a class="dropdown-item" href="#">Avulsa</a>
+                                <a class="dropdown-item" href="#">Por Parcela</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="oi oi-spreadsheet"  style="color: #991e1e;"></i>   Outros
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="Outros">
+                                <a class="dropdown-item" href="#">Lembres</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Grupos</a>
+                                <a class="dropdown-item" href="#">Modelos</a>
+                                <a class="dropdown-item" href="#">Fabricantes</a>
+                                <a class="dropdown-item" href="#">Categorias</a>
+                                <a class="dropdown-item" href="#">Opcionais</a>
+                                <a class="dropdown-item" href="#">Serviços</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Substituição de Veículos</a>
+                                <a class="dropdown-item" href="#">Manutenção de Veículos</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="oi oi-spreadsheet" style="color: #991e1e;" ></i>   Relatórios
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="Outros">
+                                <a class="dropdown-item" href="#">Veículos</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Locações no Período</a>
+                                <a class="dropdown-item" href="#">Disponível no Período</a>
+                                <a class="dropdown-item" href="#">Multas de Trãnsito</a>
+                                <a class="dropdown-item" href="#">Manutenções</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Agenda Mensal de Veículos</a>
+                                <a class="dropdown-item" href="#">Resumo de Dias Locados por Veículos</a>
+                                <a class="dropdown-item" href="#">Resumo de Receita x Despesa por Veículo</a>
+                                <a class="dropdown-item" href="#">Lucratividade Bruta por Veículo - Caixa</a>
+                                <a class="dropdown-item" href="#">Lucratividade Bruta por Veículo - Competência</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Painel Financeiro</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form action="/logout" method="post" class="form-inline mt-2 mt-md-0"  sec:authorize="isAuthenticated()">
+                        <div class="btn btn-group mb-2 mr-sm-2">
+                            <button type="button" class="btn btn-light">
+                                <span class="" sec:authentication="name">User</span>
+                            </button>
+                            <button type="submit" class="btn btn-danger">
+                                <span class="oi oi-lock-unlocked"></span>
+                                Sair
+                            </button>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="oi oi-spreadsheet"  style="color: #991e1e;"></i>   Outros
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="Outros">
-                            <a class="dropdown-item" href="#">Lembres</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Grupos</a>
-                            <a class="dropdown-item" href="#">Modelos</a>
-                            <a class="dropdown-item" href="#">Fabricantes</a>
-                            <a class="dropdown-item" href="#">Categorias</a>
-                            <a class="dropdown-item" href="#">Opcionais</a>
-                            <a class="dropdown-item" href="#">Serviços</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Substituição de Veículos</a>
-                            <a class="dropdown-item" href="#">Manutenção de Veículos</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="oi oi-spreadsheet" style="color: #991e1e;" ></i>   Relatórios
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="Outros">
-                            <a class="dropdown-item" href="#">Veículos</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Locações no Período</a>
-                            <a class="dropdown-item" href="#">Disponível no Período</a>
-                            <a class="dropdown-item" href="#">Multas de Trãnsito</a>
-                            <a class="dropdown-item" href="#">Manutenções</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Agenda Mensal de Veículos</a>
-                            <a class="dropdown-item" href="#">Resumo de Dias Locados por Veículos</a>
-                            <a class="dropdown-item" href="#">Resumo de Receita x Despesa por Veículo</a>
-                            <a class="dropdown-item" href="#">Lucratividade Bruta por Veículo - Caixa</a>
-                            <a class="dropdown-item" href="#">Lucratividade Bruta por Veículo - Competência</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Painel Financeiro</a>
-                        </div>
-                    </li>
-                </ul>
-                <form action="/logout" method="post" class="form-inline mt-2 mt-md-0"  sec:authorize="isAuthenticated()">
-                    <div class="btn btn-group mb-2 mr-sm-2">
-                        <button type="button" class="btn btn-light">
-                        <span class="" sec:authentication="name">User</span>
-                    </button>
-                    <button type="submit" class="btn btn-danger">
-                        <span class="oi oi-lock-unlocked"></span>
-                        Sair
-                    </button>
-                    </div>
-                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                </form>
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    </form>
 
-            </div>
-        </nav>
+                </div>
+            </nav>
         </header>
         <div class="container-fluid" >
             <div class="row">
-                
+
                 <aside class="col-2">
-                <nav class="menuL">
-                    <div style="padding: 10px; ">
-                        <a href="#" style="padding: 5px; background: #eab822; color: #991e1e; margin: 5px;" title="Perfil">
-                            <i class="oi oi-person" ></i>
-                        </a>
-                        <a th:href="@{/usuarios/cadastro}" style="padding: 5px; background: #eab822; color: #991e1e; margin: 5px;" title="Usuários">
-                            <i class="oi oi-people" ></i>
-                        </a>
-                        <a href="#" style="padding: 5px; background: #eab822; color: #991e1e; margin: 5px;" title="Configurações">
-                            <i class="oi oi-cog" ></i>
-                        </a>
-                        <a href="#" style="padding: 5px;  background: #eab822; color: #991e1e; margin: 5px;" title="Permissões de Acesso">
-                            <i class="oi oi-key" ></i>
-                        </a>
-                    </div>
-                    <p class="btnLateral" id="menuCadastro" >Cadastro <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p>
-                    <ul id="boxCadastro">
-                        <li><a th:href="@{clientes/cadastrar}">&triangleright;Clientes</a></li>
-                        <li><a href="#">&triangleright;Fornecedores</a></li>
-                        <li><a href="#">&triangleright;Vendedores</a></li>
-                        <li><a href="#">&triangleright;Funcionários/Sócios</a></li>
-                        <li><a href="#">&triangleright;Serviços</a></li>
-                        <li><p class="btnLateral" id="menuPreco">Preços <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p></li>
-                    </ul>
-                    <ul id="boxPrecos">
-                        <li><a href="#">&triangleright;Tabela de Preços</a></li>
-                        <li><a href="#">&triangleright;Faixas de Preços</a></li>
-                        <li><a href="#">&triangleright;Tipos de Preços</a></li>
-                    </ul>                
-                    <p class="btnLateral" id="menuServicos">Servicos <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p>
-                    <ul id="boxServicos">
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
-                    </ul>
-                </nav>  
-            </aside>
+                    <nav class="menuL">
+                        <div style="padding: 10px; ">
+                            <a href="#" style="padding: 5px; background: #eab822; color: #991e1e; margin: 5px;" title="Perfil">
+                                <i class="oi oi-person" ></i>
+                            </a>
+                            <a th:href="@{/usuarios/cadastro}" style="padding: 5px; background: #eab822; color: #991e1e; margin: 5px;" title="Usuários">
+                                <i class="oi oi-people" ></i>
+                            </a>
+                            <a href="#" style="padding: 5px; background: #eab822; color: #991e1e; margin: 5px;" title="Configurações">
+                                <i class="oi oi-cog" ></i>
+                            </a>
+                            <a href="#" style="padding: 5px;  background: #eab822; color: #991e1e; margin: 5px;" title="Permissões de Acesso">
+                                <i class="oi oi-key" ></i>
+                            </a>
+                        </div>
+                        <p class="btnLateral" id="menuCadastro" >Cadastro <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p>
+                        <ul id="boxCadastro">
+                            <li><a th:href="@{clientes/cadastrar}">&triangleright;Clientes</a></li>
+                            <li><a href="#">&triangleright;Fornecedores</a></li>
+                            <li><a href="#">&triangleright;Vendedores</a></li>
+                            <li><a href="#">&triangleright;Funcionários/Sócios</a></li>
+                            <li><a href="#">&triangleright;Serviços</a></li>
+                            <li><p class="btnLateral" id="menuPreco">Preços <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p></li>
+                        </ul>
+                        <ul id="boxPrecos">
+                            <li><a href="#">&triangleright;Tabela de Preços</a></li>
+                            <li><a href="#">&triangleright;Faixas de Preços</a></li>
+                            <li><a href="#">&triangleright;Tipos de Preços</a></li>
+                        </ul>                
+                        <p class="btnLateral" id="menuServicos">Servicos <i class="oi oi-caret-bottom" style="font-size: 10px; float: right; margin: 5px;"></i></p>
+                        <ul id="boxServicos">
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                        </ul>
+                    </nav>  
+                </aside>
 
                 <section layout:fragment="corpo" class="col-10">
-                <div>
-                    O conteúdo das páginas filhas aparecerão aqui.
-                </div>
-            </section>	
-        </div>
+                    <div>
+                        O conteúdo das páginas filhas aparecerão aqui.
+                    </div>
+                </section>	
+            </div>
         </div>
         <div class="container" >
             <hr />

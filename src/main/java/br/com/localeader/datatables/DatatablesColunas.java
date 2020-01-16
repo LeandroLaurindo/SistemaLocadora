@@ -10,5 +10,5 @@ public class DatatablesColunas {
 	
 	public static final String[] AGENDAMENTOS = {"id", "paciente.nome", "dataConsulta", "medico.nome", "especialidade.titulo"};
 
-	public static final String[] USUARIOS = {"id_usuario", "login", "ativo", "perfis"};	
+	public static final String[] USUARIOS = {"idU   suario", "login", "ativo", "perfis"};	
 }

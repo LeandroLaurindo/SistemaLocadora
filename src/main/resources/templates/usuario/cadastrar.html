@@ -13,7 +13,8 @@
                             <span>Cadastrar Usuário</span>
                         </li>
                     </ul>
-                    <a class="btn btn-warning btn-md" href="/usuarios/listar" role="button">
+                    <a class="btn btn-warning btn-md" th:href="@{/usuarios/listar/page/0}" role="button">
+
                         <span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
                         <span>Listar Usuários</span>
                     </a>
@@ -37,7 +38,16 @@
                             <input type="password" class="form-control" id="senha"
                                    placeholder="Senha" th:field="*{senha}"   required="true"/>
                         </div>
-                        
+                        <div class="form-group  col-md-12">
+                             <label for="perfil">Perfil</label>
+	                        <select id="perfil" class="form-control" th:field="*{perfil}">
+	                            <option value="">Selecione...</option>
+	                            <option th:each="c : ${perfis}" th:value="${c.idPerfil}" th:text="${c.nomePerfil}"></option>
+	                        </select>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+                        </div>
                     </div>
                    
                     <input type="hidden"  id="id"  th:field="*{idUsuario}"/>
