@@ -60,7 +60,7 @@ public class VendedorController {
         model.addAttribute("vendedor", vendedorService.buscarTodos());
         return "/vendedor/listar";
     }
-
+ 
     @GetMapping("/cadastro")
     public String cadastrarVendedor(CadVendedor vendedor) {
         return "/vendedor/cadastrar";

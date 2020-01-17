@@ -97,7 +97,7 @@ public class FornecedorController {
                 habilitacao.setDocumentoFk(documentos);
                 habilitacaoService.salvar(habilitacao);
             }*/
-
+ 
             attr.addFlashAttribute("success", "Fornecedor inserido com sucesso.");
         }
         return "redirect:/fornecedor/cadastrar";

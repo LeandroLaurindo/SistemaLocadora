@@ -6,14 +6,12 @@
 package br.com.localeader.controller;
 
 import br.com.localeader.dto.FuncionarioDto;
-import br.com.localeader.dto.VendedorDto;
 import br.com.localeader.entidades.CadDocumentos;
 import br.com.localeader.entidades.CadEmail;
 import br.com.localeader.entidades.CadEndereco;
 import br.com.localeader.entidades.CadFuncionarios;
 import br.com.localeader.entidades.CadPessoa;
 import br.com.localeader.entidades.CadTelefone;
-import br.com.localeader.entidades.CadVendedor;
 import br.com.localeader.enums.UF;
 import br.com.localeader.service.CadDocumentosService;
 import br.com.localeader.service.CadEmailService;
@@ -21,7 +19,6 @@ import br.com.localeader.service.CadEnderecoService;
 import br.com.localeader.service.CadFuncionariosService;
 import br.com.localeader.service.CadPessoaService;
 import br.com.localeader.service.CadTelefoneService;
-import br.com.localeader.service.CadVendedorService;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
